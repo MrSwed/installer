@@ -29,6 +29,12 @@ $InstallData = array(
 		'link' => 'https://github.com/dmi3yy/modx.evo.custom/archive/1.0.15-d6.18.zip',
 	    'location' => 'install/index.php'
 	),
+	'evoMrSwed' => array(
+		'tree' => 'Evolution',
+		'name' => 'MODX Evolution by MrSwed (branch master)',
+		'link' => 'https://github.com/MrSwed/modx-1.x-swed/archive/master.zip',
+	    'location' => 'install/index.php'
+	),
 	'evojp1.0.14j-r5' => array(
 		'tree' => 'Evolution',
 		'name' => 'MODX Evolution 1.0.14J-r5 (31.09.2014)',
