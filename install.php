@@ -11,53 +11,49 @@ if(extension_loaded('xdebug')){
 }
 
 $InstallData = array(
-	'evo1.0.15' => array(
-		'tree' => 'Evolution',
-		'name' => 'MODX Evolution 1.0.15 (31.10.2014)',
-		'link' => 'https://github.com/modxcms/evolution/archive/v1.0.15.zip',
-		'location' =>'install/index.php'
+	'Evolution' => array(
+		'evo1.0.15' => array(
+			'name' => 'MODX Evolution 1.0.15 (31.10.2014)',
+			'link' => 'https://github.com/modxcms/evolution/archive/v1.0.15.zip',
+			'location' =>'install/index.php'
+		),
+		'evodmi3yy1.1b-d7.0.18' => array(
+			'name' => 'MODX Evolution by Dmi3yy 1.1b-d7.0.18 (14.11.2014)',
+			'link' => 'https://github.com/dmi3yy/modx.evo.custom/archive/1.1b-d7.0.18.zip',
+			'location' => 'install/index.php'
+		),
+		'evodmi3yy1.0.15-d6.0.18' => array(
+			'name' => 'MODX Evolution by Dmi3yy 1.0.15-d6.0.18 (14.11.2014)',
+			'link' => 'https://github.com/dmi3yy/modx.evo.custom/archive/1.0.15-d6.18.zip',
+			'location' => 'install/index.php'
+		),
+		'evojp1.0.14j-r5' => array(
+			'name' => 'MODX Evolution 1.0.14J-r5 (31.09.2014)',
+			'link' => 'http://modx.jp/?dl=evo.zip',
+			'location' => 'install/index.php'
+		),
+		'clipper1.2.9' => array(
+			'name' => 'ClipperCMS 1.2.9 (08.11.2014)',
+			'link' => 'https://github.com/ClipperCMS/ClipperCMS/archive/clipper_1.2.9.zip',
+			'location' => 'install/index.php'
+		),
 	),
-	'evodmi3yy1.1b-d7.0.18' => array(
-		'tree' => 'Evolution',
-		'name' => 'MODX Evolution by Dmi3yy 1.1b-d7.0.18 (14.11.2014)',
-		'link' => 'https://github.com/dmi3yy/modx.evo.custom/archive/1.1b-d7.0.18.zip',
-		'location' => 'install/index.php'
-	),
-	'evodmi3yy1.0.15-d6.0.18' => array(
-		'tree' => 'Evolution',
-		'name' => 'MODX Evolution by Dmi3yy 1.0.15-d6.0.18 (14.11.2014)',
-		'link' => 'https://github.com/dmi3yy/modx.evo.custom/archive/1.0.15-d6.18.zip',
-		'location' => 'install/index.php'
-	),
-	'evojp1.0.14j-r5' => array(
-		'tree' => 'Evolution',
-		'name' => 'MODX Evolution 1.0.14J-r5 (31.09.2014)',
-		'link' => 'http://modx.jp/?dl=evo.zip',
-		'location' => 'install/index.php'
-	),
-	'clipper1.2.9' => array(
-		'tree' => 'Evolution',
-		'name' => 'ClipperCMS 1.2.9 (08.11.2014)',
-		'link' => 'https://github.com/ClipperCMS/ClipperCMS/archive/clipper_1.2.9.zip',
-		'location' => 'install/index.php'
-	),
-	'revo2.3.2-pl' => array(
-		'tree' => 'Revolution',
-		'name' => 'MODX Revolution 2.3.2-pl Standard Traditional (21.10.2014)',
-		'link' => 'http://modx.com/download/direct/modx-2.3.2-pl.zip',
-		'location' =>'setup/index.php'
-	),
-	'revo2.3.2-pl-ad' => array(
-		'tree' => 'Revolution',
-		'name' => 'MODX Revolution 2.3.2-pl Standard Advanced (21.10.2014)',
-		'link' => 'http://modx.com/download/direct/modx-2.3.2-pl-advanced.zip',
-		'location' =>'setup/index.php'
-	),
-	'revo2.3.2-pl-sdk' => array(
-		'tree' => 'Revolution',
-		'name' => 'MODX Revolution 2.3.2-pl Standard SDK (21.10.2014)',
-		'link' => 'http://modx.com/download/direct/modx-2.3.2-pl-sdk.zip',
-		'location' => 'setup/index.php'
+	"Revolution" => array(
+		'revo2.3.2-pl' => array(
+			'name' => 'MODX Revolution 2.3.2-pl Standard Traditional (21.10.2014)',
+			'link' => 'http://modx.com/download/direct/modx-2.3.2-pl.zip',
+			'location' =>'setup/index.php'
+		),
+		'revo2.3.2-pl-ad' => array(
+			'name' => 'MODX Revolution 2.3.2-pl Standard Advanced (21.10.2014)',
+			'link' => 'http://modx.com/download/direct/modx-2.3.2-pl-advanced.zip',
+			'location' =>'setup/index.php'
+		),
+		'revo2.3.2-pl-sdk' => array(
+			'name' => 'MODX Revolution 2.3.2-pl Standard SDK (21.10.2014)',
+			'link' => 'http://modx.com/download/direct/modx-2.3.2-pl-sdk.zip',
+			'location' => 'setup/index.php'
+		)
 	)
 );
 
@@ -123,8 +119,8 @@ class ModxInstaller{
 	}
 }
 
-if (!empty($_GET['modx']) && is_scalar($_GET['modx']) && isset($InstallData[$_GET['modx']])) {
-	$rowInstall = $InstallData[$_GET['modx']];
+if (!empty($_GET['tree']) && !empty($_GET[$_GET['tree']])  && isset($InstallData[$_GET['tree']][$_GET[$_GET['tree']]])) {
+	$rowInstall = $InstallData[$_GET['tree']][$_GET[$_GET['tree']]];
 
 	//run unzip and install
 	ModxInstaller::downloadFile($rowInstall['link'] ,"modx.zip");
@@ -145,10 +141,6 @@ if (!empty($_GET['modx']) && is_scalar($_GET['modx']) && isset($InstallData[$_GE
 	header('Location: '.$rowInstall['location']);
 
 }else{
-$ItemGrid = array();
-foreach($InstallData as $ver=>$item){
-	$ItemGrid[$item['tree']][$ver] = $item;
-}
 //@TODO : add check installer version
 ?><!DOCTYPE html>
 <html>
@@ -161,7 +153,7 @@ foreach($InstallData as $ver=>$item){
 </head>
 <body>
 	<div class="header">
-		<img src="http://installer.evolution-cms.com/img/logo.png" alt="MODX creative freedom">
+		<a href="?"><img src="http://installer.evolution-cms.com/img/logo.png" alt="MODX creative freedom"></a>
 		<h1 class="main-heading"><span>MODX</span> Installer <sup>v<?php echo $version?></sup> </h1>
 		<div class="header-button-wrapper">
 			<!--<a href="#" class="button">New version</a>&nbsp;-->
@@ -171,11 +163,11 @@ foreach($InstallData as $ver=>$item){
 <div class="content">
  <h2>Choose MODX version for Install</h2>
 	<form><?php
-	foreach($ItemGrid as $tree=>$item){
+	foreach($InstallData as $tree=>$item){
 		echo '<div class="column">
 			<h3>'.strtoupper($tree).'</h3>';
 			foreach($item as $version => $itemInfo){
-				echo '<label><input type="radio" name="modx" value="'.$version.'">            <span>'.$itemInfo['name'].'</span></label><br>';
+				echo '<label><input type="radio" name="'.$tree.'" value="'.$version.'">            <span>'.$itemInfo['name'].'</span></label><br>';
 			}
 		echo '</div>';
 	}
@@ -185,12 +177,24 @@ if (ini_get('allow_url_fopen')) { ?>
 <?php } else { ?>
 	<h2>Cannot download the files - url_fopen is not enabled on this server.</h2>
 <?php } ?>
+		<input type="hidden" name="tree" value="" />
 	</form>
 	<div class="footer">
 		<p>Created by <a href="http://ga-alex.com" title="">Bumkaka</a> & <a href="http://dmi3yy.com" title="">Dmi3yy</a></p>
 		<p>Designed by <a href="http://a-sharapov.com" title="">Sharapov</a></p>
 	</div>
 </div>
+	<script type="text/javascript">
+		var ii = document.getElementsByTagName("input");
+		for (i=0;i<ii.length;i++ ) {
+			ii[i].onclick = function(){
+				for (i=0;i<ii.length;i++ ) {
+					if (ii[i].name != this.name) ii[i].checked = false;
+					document.getElementsByName("tree")[0].value = this.name; 
+				}
+			}
+		}
+	</script>
 </body>
 </html>
 <?php } ?>
