@@ -37,9 +37,14 @@ $InstallData = array(
 			'link' => 'https://github.com/ClipperCMS/ClipperCMS/archive/clipper_1.2.9.zip',
 			'location' => 'install/index.php'
 		),
-		'evoMrSwed' => array(
+		'evoMrSwedMaster' => array(
 			'name' => 'MODX Evolution by MrSwed (branch master)',
 			'link' => 'https://github.com/MrSwed/modx-1.x-swed/archive/master.zip',
+			'location' => 'install/index.php'
+		),
+		'evoMrSwedRefactor' => array(
+			'name' => 'MODX Evolution by MrSwed (branch Refactor)',
+			'link' => 'https://github.com/MrSwed/modx-1.x-swed/archive/Refactor.zip',
 			'location' => 'install/index.php'
 		),
 	),
