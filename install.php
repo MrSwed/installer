@@ -42,9 +42,9 @@ $InstallData = array(
 			'link' => 'https://github.com/MrSwed/modx-1.x-swed/archive/master.zip',
 			'location' => 'install/index.php'
 		),
-		'evoMrSwedRefactor' => array(
-			'name' => 'MODX Evolution by MrSwed (branch Refactor)',
-			'link' => 'https://github.com/MrSwed/modx-1.x-swed/archive/Refactor.zip',
+		'evoMrSwedBeta' => array(
+			'name' => 'MODX Evolution by MrSwed (branch beta)',
+			'link' => 'https://github.com/MrSwed/modx-1.x-swed/archive/beta.zip',
 			'location' => 'install/index.php'
 		),
 	),
