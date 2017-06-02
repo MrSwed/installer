@@ -12,19 +12,19 @@ if(extension_loaded('xdebug')){
 
 $InstallData = array(
 	'Evolution' => array(
-		'evo1.0.15' => array(
-			'name' => 'MODX Evolution 1.0.15 (31.10.2014)',
-			'link' => 'https://github.com/modxcms/evolution/archive/v1.0.15.zip',
+		'evo_last' => array(
+			'name' => 'MODX Evolution 1.x (branch master)',
+			'link' => 'https://github.com/modxcms/evolution/archive/master.zip',
 			'location' =>'install/index.php'
 		),
-		'evodmi3yy1.1b-d7.0.18' => array(
-			'name' => 'MODX Evolution by Dmi3yy 1.1b-d7.0.18 (14.11.2014)',
-			'link' => 'https://github.com/dmi3yy/modx.evo.custom/archive/1.1b-d7.0.18.zip',
-			'location' => 'install/index.php'
+		'evo_beta' => array(
+			'name' => 'MODX Evolution 1.x Beta (branch develop)',
+			'link' => 'https://github.com/modxcms/evolution/archive/develop.zip',
+			'location' =>'install/index.php'
 		),
-		'evodmi3yy1.0.15-d6.0.18' => array(
-			'name' => 'MODX Evolution by Dmi3yy 1.0.15-d6.0.18 (14.11.2014)',
-			'link' => 'https://github.com/dmi3yy/modx.evo.custom/archive/1.0.15-d6.18.zip',
+		'evodmi3yy_last' => array(
+			'name' => 'MODX Evolution by Dmi3yy (branch master)',
+			'link' => 'https://github.com/dmi3yy/modx.evo.custom/archive/master.zip',
 			'location' => 'install/index.php'
 		),
 		'evojp1.0.14j-r5' => array(
@@ -38,17 +38,17 @@ $InstallData = array(
 			'location' => 'install/index.php'
 		),
 		'evoMrSwedMaster' => array(
-			'name' => 'MODX Evolution by MrSwed (With custom defaults, master)',
+			'name' => 'MODX Evolution by MrSwed (branch master)',
 			'link' => 'https://github.com/MrSwed/modx-1.x-swed/archive/master.zip',
 			'location' => 'install/index.php'
 		),
 		'evoMrSwedBeta' => array(
-			'name' => 'MODX Evolution Beta by MrSwed (With custom defaults, beta)',
+			'name' => 'MODX Evolution by MrSwed (branch beta)',
 			'link' => 'https://github.com/MrSwed/modx-1.x-swed/archive/beta.zip',
 			'location' => 'install/index.php'
 		),
 		'evoMrSwedModxBeta' => array(
-			'name' => 'MODX Evolution Beta by MrSwed (approved core, modxBeta)',
+			'name' => 'MODX Evolution by MrSwed (branch modxBeta)',
 			'link' => 'https://github.com/MrSwed/modx-1.x-swed/archive/modxBeta.zip',
 			'location' => 'install/index.php'
 		),
@@ -172,7 +172,7 @@ if (!empty($_GET['tree']) && !empty($_GET[$_GET['tree']])  && isset($InstallData
 		<h1 class="main-heading"><span>MODX</span> Installer <sup>v<?php echo $version?></sup> </h1>
 		<div class="header-button-wrapper">
 			<!--<a href="#" class="button">New version</a>&nbsp;-->
-			<a href="https://github.com/evolution-cms/installer" class="button">GitHub</a>
+			<a href="https://github.com/MrSwed/modx-installer" class="button">GitHub</a>
 		</div>
 	</div>
 <div class="content">
