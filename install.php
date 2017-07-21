@@ -53,6 +53,12 @@ $InstallData = array(
 			'link' => 'https://github.com/MrSwed/modx-1.x-swed/archive/modxBeta.zip',
 			'location' => 'install/index.php'
 		),
+	'local' => array(
+		'tree' => 'Other',
+		'name' => 'Uploaded by ftp install.zip',
+		'link' => 'install.zip',
+		'location' => 'install/index.php'
+	),
 	'clipper_master' => array(
 		'tree' => 'ClipperCMS',
 		'name' => 'ClipperCMS ',
@@ -141,26 +147,33 @@ class ModxInstaller{
 	}
 }
 	
-if (!empty($_GET['evo']) && is_scalar($_GET['evo']) && isset($InstallData[$_GET['evo']])) {
-	$rowInstall = $InstallData[$_GET['evo']];
+if (!empty($_GET['cms']) && is_scalar($_GET['cms']) && isset($InstallData[$_GET['cms']])) {
+	$rowInstall = $InstallData[$_GET['cms']];
 		
 	//run unzip and install
-	ModxInstaller::downloadFile($rowInstall['link'] ,"evo.zip");
+	if ($_GET['cms']!="local") {
+	ModxInstaller::downloadFile($rowInstall['link'] ,"install.zip");
+	
+	}
 	$zip = new ZipArchive;
-	$res = $zip->open(dirname(__FILE__)."/evo.zip");
+	$res = $zip->open(dirname(__FILE__)."/install.zip");
 	$zip->extractTo(dirname(__FILE__).'/temp' );
 	$zip->close();
-	unlink(dirname(__FILE__).'/evo.zip');
-
+	unlink(dirname(__FILE__).'/install.zip');
+	$dir = false;
 	if ($handle = opendir(dirname(__FILE__).'/temp')) {
 		while (false !== ($name = readdir($handle))) if ($name != "." && $name != "..") $dir = $name;
 		closedir($handle);
 	}
-
+if ($dir) {
 	ModxInstaller::copyFolder(dirname(__FILE__).'/temp/'.$dir, dirname(__FILE__).'/');
 	ModxInstaller::removeFolder(dirname(__FILE__).'/temp');
 	unlink(basename(__FILE__));
 	header('Location: '.$rowInstall['location']);
+		
+} else {
+		echo "Something wrong. Please go back and try other option";
+}
 
 }else{
 $ItemGrid = array(); 
@@ -198,7 +211,7 @@ echo '<h2>Choose CMS version for Install:</h2>
 			<h3>'.strtoupper($tree).'</h3>';
 			foreach($item as $version => $itemInfo){
 				$checked = ($version == 'master') ? 'checked' : '';
-				echo '<label><input type="radio" name="evo" value="'.$version.'" '.$checked.'>            <span>'.$itemInfo['name'].'</span></label><br>';
+				echo '<label><input type="radio" name="cms" value="'.$version.'" '.$checked.'>            <span>'.$itemInfo['name'].'</span></label><br>';
 			}
 		echo '</div>';
 	}
