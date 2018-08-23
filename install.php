@@ -41,10 +41,10 @@ $InstallData = array(
 			'link' => 'https://github.com/MrSwed/modx-1.x-swed/archive/master.zip',
 			'location' => 'install/index.php'
 		),
-		'evoMrSwedBeta' => array(
+		'evoMrSwedCustom' => array(
 			'tree' => 'Other',
-			'name' => 'MODX Evolution by MrSwed (branch Custom beta). Not Update!',
-			'link' => 'https://github.com/MrSwed/modx-1.x-swed/archive/beta_custom.zip',
+			'name' => 'MODX Evolution by MrSwed (branch Custom). Not Update!',
+			'link' => 'https://github.com/MrSwed/modx-1.x-swed/archive/custom.zip',
 			'location' => 'install/index.php'
 		),
 		'evoMrSwedModxBeta' => array(
